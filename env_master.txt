@@ -1,0 +1,1 @@
+SECRET_KEY = django-insecure-ffu9vd)xpz5xndl2us*^_*d&x0&#mfl^7h_q1rn1%w#e*l01pu
