@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse('<h1>PAU NO TEU CU, GRYTZ</h1>')
+    return render(request, 'alura_space-projeto_front/index.html')
+
+def imagem(request):
+    return render(request, 'alura_space-projeto_front/imagem.html')
