@@ -11,7 +11,6 @@
         <div class="alert alert-primary" role="alert">
             <p> Bem vindo {{ user }}</p>
         </div>
-        {% endif %}
         <div class="cabecalho__busca">
             <div class="busca__fundo">
                 <form action="{% url 'buscar' %}">
@@ -22,6 +21,7 @@
                 </form>
             </div>
         </div>
+        {% endif %}
     </header>
     <main class="principal">
         <section class="menu-lateral">
