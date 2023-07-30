@@ -16,7 +16,7 @@ class Fotografia(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     descricao = models.TextField(null=False, blank=False)
     foto = models.ImageField(upload_to="fotos/%Y/%m/%d/", blank=True)
-    publicada = models.BooleanField(default=False)
+    publicada = models.BooleanField(default=True)
     data_publicacao = models.DateTimeField(default=datetime.now, blank=False)
 
     def __str__(self):

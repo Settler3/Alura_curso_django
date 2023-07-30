@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from usuarios.forms import LoginForms, CadastroForms
 from django.contrib.auth.models import User
 from django.contrib import auth, messages
-from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def login(request):
@@ -57,7 +56,6 @@ def cadastro(request):
             return redirect('login')
     return render(request, 'usuarios/cadastro.html', {'form': form})
 
-@login_required
 def logout(request):
     auth.logout(request)
     messages.success(request, "Logout efetuado com sucesso!")
