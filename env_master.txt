@@ -1,2 +1,8 @@
 SECRET_KEY=django-insecure-ffu9vd)xpz5xndl2us*^_*d&x0&#mfl^7h_q1rn1%w#e*l01pu
-ALLOWED_HOSTS=192.168.0.227;TAPITA
+ALLOWED_HOSTS=192.168.0.227
+ACESS_KEY_AWS=AKIAZY2AYAW4NBCVZPGI
+SECRET_KEY_AWS=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
+BUCKET_NAME_AWS=fotografias-talita
+CUSTOM_DOMAIN_AWS=fotografias-talita.s3.amazonaws.com
+DEFAULT_ACL_AWS=public-read
+LOCATION_AWS=static
