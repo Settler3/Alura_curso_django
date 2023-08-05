@@ -116,21 +116,21 @@ USE_TZ = True
 
 #AWS Configuração
 
-AWS_ACESS_KEY_ID = str(os.getenv('ACESS_KEY_AWS'))
+AWS_ACCESS_KEY_ID = str(os.getenv('ACESS_KEY_AWS'))
 
-AWS_SECRET_ACESS_KEY = str(os.getenv('SECRET_KEY_AWS'))
+AWS_SECRET_ACCESS_KEY = str(os.getenv('SECRET_KEY_AWS'))
 
 AWS_STORAGE_BUCKET_NAME = str(os.getenv('BUCKET_NAME_AWS'))
 
 AWS_S3_CUSTOM_DOMAIN = str(os.getenv('CUSTOM_DOMAIN_AWS'))
 
-AWS_DEFAULT_ACL = str(os.getenv('DEFAULT_ACL_AWS'))
+AWS_DEFAULT_ACL = str(os.getenv('DEFAULT_ACL_AWS', 'public-read'))
 
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400'
 }
 
-AWS_LOCATION = str(os.getenv('LOCATION_AWS'))
+AWS_LOCATION = str(os.getenv('LOCATION_AWS', 'static'))
 
 AWS_QUERYSTRING_AUTH = False
 
