@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'galeria',
+    'galeria.apps.GaleriaConfig',
+    'usuarios.apps.UsuariosConfig',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -112,17 +114,49 @@ USE_I18N = True
 
 USE_TZ = True
 
+#AWS Configuração
+
+AWS_ACCESS_KEY_ID = str(os.getenv('ACESS_KEY_AWS'))
+
+AWS_SECRET_ACCESS_KEY = str(os.getenv('SECRET_KEY_AWS'))
+
+AWS_STORAGE_BUCKET_NAME = str(os.getenv('BUCKET_NAME_AWS'))
+
+AWS_S3_CUSTOM_DOMAIN = str(os.getenv('CUSTOM_DOMAIN_AWS'))
+
+AWS_DEFAULT_ACL = str(os.getenv('DEFAULT_ACL_AWS', 'public-read'))
+
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400'
+}
+
+AWS_LOCATION = str(os.getenv('LOCATION_AWS', 'static'))
+
+AWS_QUERYSTRING_AUTH = False
+
+AWS_HEADERS = {
+    'Access-Control-Allow-Origin': '*',
+}
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'setup/static')
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+#Media
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
